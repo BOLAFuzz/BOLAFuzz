@@ -1,0 +1,6 @@
+websites:
+  - name: ExampleSite
+    url: "https://example.com"
+    login:
+      username: "xxx"
+      password: "xxx"

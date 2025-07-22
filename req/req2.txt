@@ -1,0 +1,22 @@
+GET /api/student/public/selectStudentInfoByStudentId?studentId=32208560506&_t=1733389566 HTTP/1.1
+Host: 
+Connection: keep-alive
+sec-ch-ua-platform: "macOS"
+csrfToken: 4bbe441e603ea4e07661beecf2c118fc
+Authorization: Bearer undefined
+sec-ch-ua: "Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"
+sec-ch-ua-mobile: ?0
+permission: photoInfomationCheck:query
+Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS
+Access-Control-Allow-Origin: *
+X-Requested-With: XMLHttpRequest
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+Accept: application/json, text/plain, */*
+Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: zh-CN,zh;q=0.9
+Cookie: LYSESSIONID=ae56c0a8-50c8-43aa-81f6-5ca5eccac58d; user={"userType":"0","userName":"32208560504","departmentId":"056","loginPattern":"manager-login","name":"%E8%92%B2%E6%A2%93%E8%90%B1","sso":true,"ip":"113.54.155.105","roleNames":"%E5%AD%A6%E7%94%9F","departmentRecruitCode":"005"}
+
