@@ -1,0 +1,40 @@
+# 网站特定配置
+# 每个网站可以有自己的特定配置
+
+websites:
+  example.com:
+    name: "示例网站"
+    login_url: "https://example.com/login"
+    base_url: "https://example.com"
+    api_endpoints:
+      - "/api/users"
+      - "/api/orders"
+      - "/api/files"
+    special_headers:
+      "User-Agent": "BOLAFuzz/1.0"
+      "Accept": "application/json"
+    csrf_token_selector: "input[name='csrf_token']"
+    
+  demo.app.com:
+    name: "演示应用"
+    login_url: "https://demo.app.com/auth/login"
+    base_url: "https://demo.app.com"
+    api_endpoints:
+      - "/api/v1/profile"
+      - "/api/v1/documents"
+      - "/api/v1/settings"
+    authentication_type: "bearer_token"  # session_cookie, bearer_token, api_key
+    
+  vulnerable-app.local:
+    name: "本地测试应用"
+    login_url: "http://vulnerable-app.local/login"
+    base_url: "http://vulnerable-app.local"
+    skip_ssl_verification: true
+    api_endpoints:
+      - "/api/user/{user_id}/profile"
+      - "/api/user/{user_id}/orders"
+      - "/admin/users/{user_id}"
+    vulnerable_patterns:
+      - "user_id"
+      - "order_id"
+      - "admin_id"

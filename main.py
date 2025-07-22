@@ -6,7 +6,7 @@ from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit import PromptSession
 from prompt_toolkit.cursor_shapes import CursorShape
 from prompt_toolkit.key_binding import KeyBindings
-from init import Init
+from src.core.init import Init
 bindings = KeyBindings()
 @bindings.add('c-c')
 def _(event):

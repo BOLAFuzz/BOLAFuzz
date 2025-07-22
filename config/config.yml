@@ -1,0 +1,78 @@
+# BOLAFuzz 配置文件
+
+# 测试用户凭据（需要至少两个不同权限的用户进行横向权限测试）
+Credentials:
+  - username: "user1"
+    password: "password123"
+    description: "普通用户"
+  - username: "admin"
+    password: "adminpass"
+    description: "管理员用户"
+  - username: "testuser"
+    password: "testpass"
+    description: "测试用户"
+
+# 测试目标 URL 配置
+Urls:
+  - url: "https://example.com"
+    description: "示例目标网站"
+    login_path: "/login"
+    api_path: "/api"
+  - url: "https://demo.app.com"
+    description: "演示应用"
+    login_path: "/auth/login"
+    api_path: "/api/v1"
+
+# 登录相关参数配置
+LoginParameters:
+  username_field: "username"        # 用户名输入框的 name 或 id
+  password_field: "password"        # 密码输入框的 name 或 id
+  submit_button: "submit"           # 提交按钮的选择器
+  login_success_indicator: "dashboard"  # 登录成功后页面的标识元素
+  session_cookie: "sessionid"      # 会话 Cookie 名称
+
+# 已知信息配置（用于参数变异测试）
+KnowInfos:
+  - type: "user_id"
+    description: "用户ID"
+    values: ["1", "2", "3", "admin", "test", "guest", "user"]
+  - type: "resource_id"
+    description: "资源ID"
+    values: ["123", "456", "789", "1001", "2001"]
+  - type: "order_id"
+    description: "订单ID"
+    values: ["ORD001", "ORD002", "12345", "67890"]
+  - type: "file_id"
+    description: "文件ID"
+    values: ["file1", "file2", "doc123", "img456"]
+
+# 模糊测试配置
+FuzzConfig:
+  max_depth: 3                      # 最大爬取深度
+  delay_between_requests: 1         # 请求间延迟（秒）
+  timeout: 30                       # 请求超时时间（秒）
+  max_payloads_per_param: 10        # 每个参数的最大载荷数量
+  enable_ai_analysis: true          # 是否启用 AI 分析
+  
+# AI 模型配置
+AIConfig:
+  provider: "ollama"                # AI 提供商：ollama, openai, local
+  model_name: "qwen2:7b"           # 模型名称
+  api_endpoint: "http://localhost:11434"  # API 端点
+  temperature: 0                    # 生成温度
+  max_tokens: 2048                 # 最大生成长度
+
+# 爬虫配置
+CrawlerConfig:
+  user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  headless: true                    # 是否无头模式
+  window_size: "1920,1080"         # 浏览器窗口大小
+  page_load_timeout: 30            # 页面加载超时
+  implicit_wait: 10                # 隐式等待时间
+
+# 输出配置
+OutputConfig:
+  report_format: "html"            # 报告格式：html, json, xml
+  report_filename: "result.html"   # 报告文件名
+  save_raw_data: true              # 是否保存原始数据
+  log_level: "INFO"                # 日志级别：DEBUG, INFO, WARNING, ERROR
